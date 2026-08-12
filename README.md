@@ -30,7 +30,7 @@ A pasta `app/` nunca contém lógica de negócio. `page.tsx` e `layout.tsx` impo
 `shared` não conhece `features`. `features` não conhece `app`. A dependência flui numa direção só: `app → features → shared`.
 
 ### 4. Domínio agrupa por papel, não o contrário
-Dentro de `features/<dominio>/`, os arquivos são organizados por papel (`components/`, `actions.ts`, `hooks.ts`, `types.ts`, `shells/` quando aplicável) — mas essa subdivisão é local e opcional, não uma estrutura imposta globalmente.
+Dentro de `features/<dominio>/`, os arquivos são organizados por papel (`components/`, `actions.ts ou actions/`, `hooks/`, `types/`, `shells/` quando aplicável) — essa subdivisão por pastas é opcional variando com a necessidade, quando possível inserir apenas os arquivos para cada um desses itens. seguindo as boas práticas de clean code o ideal é que um grande arquivo seja dividido em vários outros de acordo com a responsabilidade de cada um deles.
 
 ### 5. Nomes carregam intenção
 Compound components (`Form.Label`, `Shell.Header`) são usados quando as partes têm relação de composição real entre si. Barrels simples são usados quando os componentes são independentes. A escolha do padrão comunica a relação entre as peças — nunca é arbitrária.
@@ -58,10 +58,11 @@ Compound components (`Form.Label`, `Shell.Header`) são usados quando as partes 
 
   /features
     /auth
-      actions.ts             # reaproveitado por mais de uma rota
-      schema.ts
-      hooks.ts
-      types.ts
+      /actions.
+        actions.ts             # reaproveitado por mais de uma rota
+        schema.ts
+      /hooks
+      /types
       /components
 
     /layout
@@ -72,24 +73,14 @@ Compound components (`Form.Label`, `Shell.Header`) são usados quando as partes 
         Header.tsx
         Sidebar.tsx
         Footer.tsx
-      hooks.ts
-      types.ts
-
-    /dashboard
-      actions.ts
-      schema.ts
-      hooks.ts
-      types.ts
-      /components
 
   /shared
+    /assets
     /components               # UI kit puro, sem conhecimento de negócio
     /hooks
     /utils
     /types
-    styles/
-
-  /assets
+    /styles
 
 next.config.ts
 tsconfig.json
@@ -103,7 +94,7 @@ tsconfig.json
 |---|---|
 | Componente reutilizado por 2+ domínios, sem lógica de negócio | `shared/components` |
 | Componente que conhece regra de negócio, usado em 1+ rotas | `features/<dominio>/components` |
-| Server Action chamada de mais de um lugar | `features/<dominio>/actions.ts` |
+| Server Action chamada de mais de um lugar | `features/<dominio>/actions` |
 | Server Action usada por uma única rota | Colocated em `app/.../_actions.ts` |
 | Composição de layout (Header + Sidebar + Footer) | `features/layout/shells` |
 | Peça atômica de layout (só o Header) | `features/layout/components` |
