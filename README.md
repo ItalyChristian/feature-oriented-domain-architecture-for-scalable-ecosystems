@@ -2,6 +2,9 @@
 
 > Arquitetura de organização de código para aplicações Next.js (App Router) + React.s + TypeScript, pensada para escalar sem virar bagunça.
 
+> Sugestão de abreviação para o ambiente corporativo: FDS-Architecture
+> Para os mais íntimos: FODASE ou simplesment FOD-Architecture
+
 ---
 
 ## Por que existe

@@ -15,3 +15,6 @@ Estrutura comum dentro de cada domínio:
 - `shells/` — apenas quando o domínio envolve composição de layout
 
 Regra de dependência: `features/` nunca importa de `app/`.
+
+Para os arquivos de Tipos:
+
