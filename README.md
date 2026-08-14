@@ -84,7 +84,6 @@ src/features/dashboard
 NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas os que fazem sentido para aquele domínio específico.
 
 ```
----
 
 ## Regras rápidas de decisão
 
@@ -97,7 +96,6 @@ NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas 
 | `features/layout/shells`| Composição de layout (Header + Sidebar + Footer)  |
 | `features/layout/components`| Peça atômica de layout (só o Header)  |
 
----
 
 ```
 
