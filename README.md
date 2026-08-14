@@ -52,13 +52,13 @@ src
 +-- features           # módulos organizados por domínio de negócio
 |
 +-- shared             # componentes, hooks e utils agnósticos de negócio
+|   +-- assets             # imagens, fontes e outros arquivos estático
 |   +-- components     # UI kit puro (Button, Input, Modal)
 |   +-- hooks          # hooks genéricos (useDebounce, useMediaQuery)
 |   +-- utils          # funções puras, sem estado
 |   +-- types          # tipos genéricos, reaproveitáveis em qualquer contexto
 |   +-- styles         # tokens de design, estilos base
-|
-+-- assets             # imagens, fontes e outros arquivos estáticos
+
 ```
 
 A maior parte da lógica da aplicação deve viver dentro de `features`, organizada por domínio. Cada domínio agrupa o que é específico dele, evitando misturar lógica de negócio com componentes compartilhados — o que torna o código mais simples de localizar e manter do que espalhar tudo por tipo de arquivo num nível global.
@@ -68,38 +68,21 @@ Uma feature pode ter a seguinte estrutura:
 ```
 src/features/dashboard
 |
-+-- actions.ts     # Server Actions reaproveitadas por mais de uma rota
++-- actions        # Server Actions reaproveitadas por mais de uma rota
 |
-+-- api.ts         # lógica exposta via Route Handler (app/api/.../route.ts)
++-- hooks          # hooks específicos do domínio (um hook único, sem sufixo)
 |
-+-- schema.ts      # validação (Zod ou similar)
-|
-+-- hooks.ts       # hooks específicos do domínio (um hook único, sem sufixo)
-|
-+-- types.ts       # tipos do domínio — cresce para /types dividido por
++-- types          # tipos do domínio — cresce para /types dividido por
 |                  # conceito (não por consumidor) quando necessário
 |
++-- validations    # validação (Zod ou similar)
+|
 +-- components     # componentes escopados a este domínio, com colocation
-                    # flat (hook, types e styles junto ao próprio componente)
+                   # flat (hook, types e styles junto ao próprio componente)
 ```
 
-NOTE: nem toda feature precisa de todos esses arquivos. Inclua apenas os que fazem sentido para aquele domínio específico.
+NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas os que fazem sentido para aquele domínio específico.
 
-Um exemplo real da anatomia de `app/(private)`, aplicando route groups e colocation:
-
-```
-src/app/(private)
-|
-+-- layout.tsx              # aplica auth guard, monta o shell (Header/Sidebar)
-|
-+-- dashboard
-|   +-- page.tsx             # só importa de features/dashboard e compõe
-|
-+-- settings
-    +-- security
-        +-- page.tsx
-        +-- _actions.ts       # Server Action de uso único, colocated (privada)
-        +-- _schema.ts
 ```
 ---
 
