@@ -99,6 +99,8 @@ NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas 
 
 ---
 
+```
+
 ## Status
 
 🚧 Em construção — este repositório existe para testar e validar a arquitetura na prática antes de considerá-la estável o suficiente para outros projetos.
