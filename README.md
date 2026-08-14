@@ -89,7 +89,7 @@ NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas 
 ## Regras rápidas de decisão
 
 | Situação | Onde vai |
-|---|---|
+|----------|----------|
 | Componente reutilizado por 2+ domínios, sem lógica de negócio | `shared/components` |
 | Componente que conhece regra de negócio, usado em 1+ rotas | `features/<dominio>/components` |
 | Server Action chamada de mais de um lugar | `features/<dominio>/actions` |
