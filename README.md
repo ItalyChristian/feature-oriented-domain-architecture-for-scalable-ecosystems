@@ -52,7 +52,7 @@ src
 +-- features           # módulos organizados por domínio de negócio
 |
 +-- shared             # componentes, hooks e utils agnósticos de negócio
-|   +-- assets             # imagens, fontes e outros arquivos estático
+|   +-- assets         # imagens, fontes e outros arquivos estático
 |   +-- components     # UI kit puro (Button, Input, Modal)
 |   +-- hooks          # hooks genéricos (useDebounce, useMediaQuery)
 |   +-- utils          # funções puras, sem estado

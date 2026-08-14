@@ -7,14 +7,12 @@ Um arquivo pertence a `features/<dominio>/` quando:
 - É reaproveitado por mais de uma rota dentro de `app/`
 
 Estrutura comum dentro de cada domínio:
-- `components/` — peças de UI específicas do domínio
-- `actions.ts` — Server Actions reaproveitadas por mais de uma rota
-- `schema.ts` — validação (Zod ou similar)
-- `hooks.ts` — hooks específicos do domínio
-- `types.ts` — tipos do domínio
-- `shells/` — apenas quando o domínio envolve composição de layout
+- `actions/`     — Server Actions reaproveitadas por mais de uma rota
+- `components/`  — peças de UI específicas do domínio
+- `hooks/`       — hooks específicos do domínio
+- `types/`       — tipos do domínio
+- `validations/` — validação (Zod ou similar)
+- `shells/`      — apenas quando o domínio envolve composição de layout
 
 Regra de dependência: `features/` nunca importa de `app/`.
-
-Para os arquivos de Tipos:
 
