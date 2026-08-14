@@ -39,53 +39,68 @@ Compound components (`Form.Label`, `Shell.Header`) são usados quando as partes 
 
 ## Estrutura
 
+A maior parte do código vive dentro de `src`, organizada assim:
+
 ```
-/public
-/src
-  /app
-    layout.tsx
-    page.tsx
-    /(public)
-      /login
-      /register
-    /(private)
-      layout.tsx
-      /dashboard
-      /settings
-        /security
-          page.tsx
-          _actions.ts        # Server Action de uso único, colocated
-
-  /features
-    /auth
-      /actions.
-        actions.ts             # reaproveitado por mais de uma rota
-        schema.ts
-      /hooks
-      /types
-      /components
-
-    /layout
-      /shells
-        PrivateShell.tsx
-        PublicShell.tsx
-      /components
-        Header.tsx
-        Sidebar.tsx
-        Footer.tsx
-
-  /shared
-    /assets
-    /components               # UI kit puro, sem conhecimento de negócio
-    /hooks
-    /utils
-    /types
-    /styles
-
-next.config.ts
-tsconfig.json
+src
+|
++-- app                # roteamento e composição — nunca lógica de negócio
+|   +-- (public)       # route group: páginas sem autenticação
+|   +-- (private)      # route group: páginas autenticadas
+|   +-- api            # Route Handlers — thin adapters, delegam para features
+|
++-- features           # módulos organizados por domínio de negócio
+|
++-- shared             # componentes, hooks e utils agnósticos de negócio
+|   +-- components     # UI kit puro (Button, Input, Modal)
+|   +-- hooks          # hooks genéricos (useDebounce, useMediaQuery)
+|   +-- utils          # funções puras, sem estado
+|   +-- types          # tipos genéricos, reaproveitáveis em qualquer contexto
+|   +-- styles         # tokens de design, estilos base
+|
++-- assets             # imagens, fontes e outros arquivos estáticos
 ```
 
+A maior parte da lógica da aplicação deve viver dentro de `features`, organizada por domínio. Cada domínio agrupa o que é específico dele, evitando misturar lógica de negócio com componentes compartilhados — o que torna o código mais simples de localizar e manter do que espalhar tudo por tipo de arquivo num nível global.
+
+Uma feature pode ter a seguinte estrutura:
+
+```
+src/features/dashboard
+|
++-- actions.ts     # Server Actions reaproveitadas por mais de uma rota
+|
++-- api.ts         # lógica exposta via Route Handler (app/api/.../route.ts)
+|
++-- schema.ts      # validação (Zod ou similar)
+|
++-- hooks.ts       # hooks específicos do domínio (um hook único, sem sufixo)
+|
++-- types.ts       # tipos do domínio — cresce para /types dividido por
+|                  # conceito (não por consumidor) quando necessário
+|
++-- components     # componentes escopados a este domínio, com colocation
+                    # flat (hook, types e styles junto ao próprio componente)
+```
+
+NOTE: nem toda feature precisa de todos esses arquivos. Inclua apenas os que fazem sentido para aquele domínio específico.
+
+Um exemplo real da anatomia de `app/(private)`, aplicando route groups e colocation:
+
+```
+src/app/(private)
+|
++-- layout.tsx              # aplica auth guard, monta o shell (Header/Sidebar)
+|
++-- dashboard
+|   +-- page.tsx             # só importa de features/dashboard e compõe
+|
++-- settings
+    +-- security
+        +-- page.tsx
+        +-- _actions.ts       # Server Action de uso único, colocated (privada)
+        +-- _schema.ts
+```
 ---
 
 ## Regras rápidas de decisão
