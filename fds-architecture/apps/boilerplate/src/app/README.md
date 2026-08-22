@@ -38,8 +38,8 @@ O prefixo `_` marca o arquivo como privado — ele nunca vira rota, mas continua
 
 Cada provider individual continua morando de acordo com as regras que já temos:
 
-- Provider agnóstico de negócio (React Query, date picker, tema visual puro) → configurado em `shared/` (ex: `shared/lib/query-client.ts`, `shared/providers/theme-provider.tsx`).
-- Provider que conhece regra de negócio (ex: `UserProvider`, que carrega sessão/autenticação) → vive em `features/<dominio>/` (ex: `features/auth/user-provider.tsx`).
+- Provider agnóstico de negócio (React Query, date picker, tema visual puro) → configurado em `shared/` (ex: `shared/lib/query-client.ts`, `shared/providers/ThemeProvider.tsx`).
+- Provider que conhece regra de negócio (ex: `UserProvider`, que carrega sessão/autenticação) → vive em `features/<dominio>/` (ex: `features/auth/UserProvider.tsx`).
 
 `_providers.tsx` apenas importa esses providers já prontos e define a ordem de composição. Ele nunca implementa um Context do zero ali dentro.
 
@@ -53,11 +53,11 @@ src/
     lib/
       query-client.ts      ← configuração do QueryClient
     providers/
-      theme-provider.tsx   ← provider de tema, agnóstico de negócio
+      ThemeProvider.tsx   ← provider de tema, agnóstico de negócio
 
   features/
     auth/
-      user-provider.tsx    ← conhece sessão/usuário — pertence ao domínio
+      UserProvider.tsx    ← conhece sessão/usuário — pertence ao domínio
 ```
 
 ## Ordem de composição importa — documente-a
