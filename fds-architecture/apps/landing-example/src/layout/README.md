@@ -1,4 +1,4 @@
-# features/layout/
+# layout/
 
 Domínio responsável pela composição visual das telas (não confundir com `layout.tsx` do App Router, que apenas consome o que está aqui).
 

@@ -91,8 +91,8 @@ NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas 
 | `features/<dominio>/components` | Componente que conhece regra de negócio, usado em 1+ rotas |
 | `features/<dominio>/actions` | Server Action chamada de mais de um lugar |
 | Colocated em `app/.../_actions.ts`| Server Action usada por uma única rota  |
-| `features/layout/shells`| Composição de layout (Header + Sidebar + Footer)  |
-| `features/layout/components`| Peça atômica de layout (só o Header)  |
+| `layout/shells`| Composição de layout (Header + Sidebar + Footer)  |
+| `layout/components`| Peça atômica de layout (só o Header)  |
 
 ## Status
 

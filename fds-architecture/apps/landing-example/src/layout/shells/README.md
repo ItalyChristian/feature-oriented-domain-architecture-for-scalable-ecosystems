@@ -1,4 +1,4 @@
-# features/layout/shells/
+# layout/shells/
 
 Componentes de composição — orquestram as peças de `../components/` para formar a estrutura completa de uma área da aplicação.
 

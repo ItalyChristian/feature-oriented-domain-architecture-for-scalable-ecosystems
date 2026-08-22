@@ -1,4 +1,4 @@
-# features/layout/components/
+# layout/components/
 
 Peças atômicas de layout: Header, Sidebar, Footer, Nav.
 
