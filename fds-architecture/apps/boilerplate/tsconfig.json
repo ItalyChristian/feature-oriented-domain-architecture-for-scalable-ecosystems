@@ -15,6 +15,10 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "plugins": [{ "name": "next" }]
   },
   "include": [
@@ -22,10 +26,10 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    
+
       "../../apps/boilerplate/.next/types/**/*.ts",
       "../../dist/apps/boilerplate/.next/types/**/*.ts",
-    
+
     "index.d.ts",
     "next-env.d.ts"
   ],

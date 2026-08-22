@@ -1,0 +1,48 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.options {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 4px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--hover-bg, #f3f4f6);
+}
+
+.optionSelected {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--selected-bg, #e5e7eb);
+  font-weight: 600;
+}
+
+.empty {
+  padding: 8px 10px;
+  font-size: 13px;
+  color: var(--muted-color, #6b7280);
+}
