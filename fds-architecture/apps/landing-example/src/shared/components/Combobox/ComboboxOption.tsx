@@ -1,7 +1,7 @@
 'use client';
 
 import type { ComboboxOption as ComboboxOptionType } from './Combobox.types';
-import { useComboboxContext } from './Combobox';
+import { useComboboxContext } from './ComboboxContext';
 import styles from './Combobox.module.css';
 
 interface ComboboxOptionProps {

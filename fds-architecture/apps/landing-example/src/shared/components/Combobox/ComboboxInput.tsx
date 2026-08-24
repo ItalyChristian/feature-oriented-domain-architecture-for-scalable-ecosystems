@@ -1,6 +1,6 @@
 'use client';
 
-import { useComboboxContext } from './Combobox';
+import { useComboboxContext } from './ComboboxContext';
 import styles from './Combobox.module.css';
 
 export function ComboboxInput() {
