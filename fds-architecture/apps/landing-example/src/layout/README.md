@@ -1,6 +1,6 @@
 # layout/
 
-Domínio responsável pela composição visual das telas (não confundir com `layout.tsx` do App Router, que apenas consome o que está aqui).
+Domínio responsável pela composição visual das tela.
 
 - `shells/` — composição: monta a estrutura completa da página, combinando as peças de `components/`
 - `components/` — peças atômicas de layout (Header, Sidebar, Footer, Nav)

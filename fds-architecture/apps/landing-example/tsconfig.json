@@ -15,6 +15,11 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
+    "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "plugins": [{ "name": "next" }]
   },
   "include": [
@@ -23,17 +28,11 @@
     "**/*.js",
     "**/*.jsx",
 
-    "../../apps/landing-example/.next/types/**/*.ts",
-    "../../dist/apps/landing-example/.next/types/**/*.ts",
+      "../../apps/landing-example/.next/types/**/*.ts",
+      "../../dist/apps/landing-example/.next/types/**/*.ts",
 
     "index.d.ts",
     "next-env.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "jest.config.ts",
-    "jest.config.cts",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ]
+  "exclude": ["node_modules", "jest.config.ts", "jest.config.cts", "**/*.spec.ts", "**/*.test.ts"]
 }

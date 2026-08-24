@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { QueryClientProvider } from '@tanstack/react-query';
 //    Cada provider é implementado no lugar certo e apenas importado aqui.
 //    Agnóstico de negócio → shared/. Conhece domínio → features/<dominio>/.
-import { createQueryClient } from '../shared/lib/query-client';
-import { ThemeProvider } from '../shared/providers/ThemeProvider';
-import { UserProvider } from '../features/auth/UserProvider';
+import { createQueryClient } from '@/shared/lib/query-client';
+import { ThemeProvider } from '@/shared/providers/ThemeProvider';
+import { UserProvider } from '@/features/auth/UserProvider';
 
 interface AppProvidersProps {
   children: React.ReactNode;

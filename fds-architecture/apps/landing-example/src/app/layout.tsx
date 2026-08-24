@@ -1,4 +1,5 @@
 import './global.css';
+import { AppProviders } from './_providers';
 
 export const metadata = {
   title: 'Welcome to boilerplate',
@@ -11,8 +12,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="pt-BR">
+      <body>
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   )
 }
