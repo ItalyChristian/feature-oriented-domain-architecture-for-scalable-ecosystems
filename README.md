@@ -5,6 +5,8 @@
 > Sugestão de abreviação para o ambiente corporativo: FDS-Architecture \
 > Para os mais íntimos: FODASE ou simplesmente FOD-Architecture
 
+<img width="1254" height="1254" alt="logo-fds" src="https://github.com/user-attachments/assets/564c0907-329d-431d-a5f9-3d12af6fe0bb" />
+
 ---
 
 ## Por que existe
