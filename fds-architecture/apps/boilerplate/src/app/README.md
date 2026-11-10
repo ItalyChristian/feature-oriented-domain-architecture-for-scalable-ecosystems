@@ -10,16 +10,20 @@ Toda aplicação real acumula providers: tema, autenticação, data-fetching (Re
 
 ```tsx
 // app/layout.tsx
-import { AppProviders } from './_providers'
+import { AppProviders } from './_providers';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="pt-BR">
+    <html lang='pt-BR'>
       <body>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>
-  )
+  );
 }
 ```
 
@@ -59,10 +63,6 @@ src/
     auth/
       UserProvider.tsx     ← conhece sessão/usuário — pertence ao domínio
 ```
-
-## Nomenclatura: providers usam PascalCase
-
-Diferente de `hooks.ts`, `actions.ts` ou `lib/query-client.ts` (que usam lowercase/kebab-case), um arquivo de provider é nomeado em **PascalCase** (`ThemeProvider.tsx`, `UserProvider.tsx`). A razão é consistente com a regra geral já estabelecida: PascalCase é exclusivo de arquivos que exportam um componente React — e um provider é, estruturalmente, um componente (recebe `children`, retorna JSX). Isso o diferencia de `query-client.ts`, que apenas instancia um objeto e não retorna JSX.
 
 ## Ordem de composição importa — documente-a
 

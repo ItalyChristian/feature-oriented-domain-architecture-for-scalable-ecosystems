@@ -18,21 +18,31 @@ Este modelo aplica princípios já consolidados no backend (camadas hierárquica
 ## Princípios
 
 ### 1. Uma pergunta por arquivo novo
+
 Ao criar qualquer arquivo, existe uma única pergunta a responder: **é genérico e agnóstico de negócio, ou pertence a um domínio específico?**
+
 - Genérico → `shared/`
 - Pertence a um domínio, usado por mais de uma rota → `features/<dominio>/`
 - Hiperespecífico de uma única rota → colocated dentro de `app/` com prefixo `_`
 
 ### 2. `app/` é só roteamento e composição
+
 A pasta `app/` nunca contém lógica de negócio. `page.tsx` e `layout.tsx` importam de `features/` e compõem a tela. Nada além disso.
 
 ### 3. Camadas não importam "para cima"
+
 `shared` não conhece `features`. `features` não conhece `app`. A dependência flui numa direção só: `app → features → shared`.
 
 ### 4. Domínio agrupa por papel, não o contrário
+
 Dentro de `features/<dominio>/`, os arquivos são organizados por papel (`components/`, `actions.ts ou actions/`, `hooks/`, `types/`, `shells/` quando aplicável) — essa subdivisão por pastas é opcional variando com a necessidade, quando possível inserir apenas os arquivos para cada um desses itens. seguindo as boas práticas de clean code o ideal é que um grande arquivo seja dividido em vários outros de acordo com a responsabilidade de cada um deles.
 
-### 5. Nomes carregam intenção
+### 5. Nomenclatura: providers usam PascalCase
+
+Diferente de `hooks.ts`, `actions.ts` ou `lib/query-client.ts` (que usam lowercase/kebab-case), um arquivo de provider é nomeado em **PascalCase** (`ThemeProvider.tsx`, `UserProvider.tsx`). A razão é consistente com a regra geral já estabelecida: PascalCase é exclusivo de arquivos que exportam um componente React — e um provider é, estruturalmente, um componente (recebe `children`, retorna JSX). Isso o diferencia de `query-client.ts`, que apenas instancia um objeto e não retorna JSX.
+
+### 6. Nomes carregam intenção
+
 Compound components (`Form.Label`, `Shell.Header`) são usados quando as partes têm relação de composição real entre si. Barrels simples são usados quando os componentes são independentes. A escolha do padrão comunica a relação entre as peças — nunca é arbitrária.
 
 ---
@@ -85,14 +95,14 @@ NOTE: nem toda feature precisa de todas essas pastas ou arquivos. Inclua apenas 
 
 ## Regras rápidas de decisão
 
-| Situação | Onde vai |
-|----------|----------|
-|`shared/components` | Componente reutilizado por 2+ domínios, sem lógica de negócio | 
-| `features/<dominio>/components` | Componente que conhece regra de negócio, usado em 1+ rotas |
-| `features/<dominio>/actions` | Server Action chamada de mais de um lugar |
-| Colocated em `app/.../_actions.ts`| Server Action usada por uma única rota  |
-| `layout/shells`| Composição de layout (Header + Sidebar + Footer)  |
-| `layout/components`| Peça atômica de layout (só o Header)  |
+| Situação                           | Onde vai                                                      |
+| ---------------------------------- | ------------------------------------------------------------- |
+| `shared/components`                | Componente reutilizado por 2+ domínios, sem lógica de negócio |
+| `features/<dominio>/components`    | Componente que conhece regra de negócio, usado em 1+ rotas    |
+| `features/<dominio>/actions`       | Server Action chamada de mais de um lugar                     |
+| Colocated em `app/.../_actions.ts` | Server Action usada por uma única rota                        |
+| `layout/shells`                    | Composição de layout (Header + Sidebar + Footer)              |
+| `layout/components`                | Peça atômica de layout (só o Header)                          |
 
 ## Status
 
