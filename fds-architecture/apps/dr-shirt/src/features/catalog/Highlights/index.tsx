@@ -1,4 +1,5 @@
 import { BoltGradientIcon } from '@/shared/assets/icons/BoltGradientIcon';
+import Atom_Heart_Mother from '@/shared/assets/images/Atom_Heart_Mother.jpg';
 import Dark_Side_of_the_Moon from '@/shared/assets/images/Dark_Side_of_the_Moon.png';
 import {
   card,
@@ -32,7 +33,21 @@ export const Highlights = () => {
             Dark side of the moon
           </Heading>
           <span className={cardBand}>Pink Floyd</span>
-          <span className={cardPrice}>R$ 89,90</span>
+          <span className={cardPrice}>R$ 1,00</span>
+          <button className={cardButton}>Garantir</button>
+        </div>
+
+        <div className={card} style={{ cursor: 'pointer' }}>
+          <img
+            className={cardImage}
+            src={Atom_Heart_Mother.src}
+            alt='Camiseta Pink Floyd'
+          />
+          <Heading as='h3' size='4' className={cardTitle}>
+            Dark side of the moon
+          </Heading>
+          <span className={cardBand}>Pink Floyd</span>
+          <span className={cardPrice}>R$ 1,00</span>
           <button className={cardButton}>Garantir</button>
         </div>
 
@@ -46,21 +61,7 @@ export const Highlights = () => {
             Dark side of the moon
           </Heading>
           <span className={cardBand}>Pink Floyd</span>
-          <span className={cardPrice}>R$ 89,90</span>
-          <button className={cardButton}>Garantir</button>
-        </div>
-
-        <div className={card} style={{ cursor: 'pointer' }}>
-          <img
-            className={cardImage}
-            src={Dark_Side_of_the_Moon.src}
-            alt='Camiseta Pink Floyd'
-          />
-          <Heading as='h3' size='4' className={cardTitle}>
-            Dark side of the moon
-          </Heading>
-          <span className={cardBand}>Pink Floyd</span>
-          <span className={cardPrice}>R$ 89,90</span>
+          <span className={cardPrice}>R$ 1,00</span>
           <button className={cardButton}>Garantir</button>
         </div>
       </div>

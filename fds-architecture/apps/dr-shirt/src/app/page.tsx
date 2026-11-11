@@ -1,4 +1,4 @@
-import { Highlights } from '@/features/Home/components/Highlights';
+import { Highlights } from '@/features/catalog/Highlights';
 import { StoreShell } from '@/layout/shells/StoreShell';
 
 export default function Home() {
