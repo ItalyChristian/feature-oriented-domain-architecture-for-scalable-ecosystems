@@ -3,7 +3,7 @@ import AppProviders from './_providers';
 import './global.css';
 
 export const metadata = {
-  title: 'Welcome to dr-shirt',
+  title: 'Welcome to Dr Shirt',
   description:
     'Web shop for Dr. Shirt, a fictional company that sells customized t-shirts with funny, rock and nerdy designs.',
 };
