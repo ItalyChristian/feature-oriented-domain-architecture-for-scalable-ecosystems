@@ -1,11 +1,11 @@
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 
-interface PublicShellProps {
+interface StoreShellProps {
   children: React.ReactNode;
 }
 
-export const PublicShell = ({ children }: PublicShellProps) => {
+export const StoreShell = ({ children }: StoreShellProps) => {
   return (
     <div>
       <Header />

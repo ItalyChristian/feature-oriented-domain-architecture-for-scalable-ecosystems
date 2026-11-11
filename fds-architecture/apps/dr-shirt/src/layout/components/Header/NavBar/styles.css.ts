@@ -11,16 +11,19 @@ export const ul = style({
   flexWrap: 'wrap',
   justifyContent: 'center',
   gap: '5px',
+  listStyle: 'none',
 });
 
 export const a = style({
   padding: '10px 18px',
+  color: 'white',
   fontFamily: 'Courier New',
   fontSize: '0.8rem',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   borderRadius: '4px',
   transition: '0.2s',
+  textDecoration: 'none',
 
   ':hover': {
     background: colors.primary,

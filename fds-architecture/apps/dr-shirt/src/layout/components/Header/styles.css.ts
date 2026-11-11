@@ -1,5 +1,5 @@
-import { mediaQueries } from '@/shared/styles/breakpoints';
 import { colors } from '@/shared/styles/colors.css';
+import { mediaQueries } from '@/shared/types/breakpoints';
 import { style } from '@vanilla-extract/css';
 
 export const header = style({
@@ -54,7 +54,9 @@ export const link = style({
   alignItems: 'center',
   gap: '0.5rem',
   padding: '10px 20px',
+  color: 'white',
   fontWeight: 'bold',
+  textDecoration: 'none',
   border: `1px solid ${colors.primary}`,
   borderRadius: '30px',
   background: ' rgba(255,255,255,0.1)',
